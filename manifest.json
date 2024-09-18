@@ -1,7 +1,7 @@
 {
   "repos": [
     {
-      "id": "Nostr IRL Auth",
+      "id": "nostr-nfc-auth",
       "organisation": "blackcoffeexbt",
       "repository": "nostr-nfc-auth"
     }
