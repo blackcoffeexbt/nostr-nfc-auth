@@ -11,15 +11,15 @@ from .views_lnurl import boltcards_lnurl_router
 
 boltcards_static_files = [
     {
-        "path": "/boltcards/static",
-        "name": "boltcards_static",
+        "path": "/nostrnfcauth/static",
+        "name": "nostrnfcauth_static",
     }
 ]
 
-boltcards_ext: APIRouter = APIRouter(prefix="/boltcards", tags=["boltcards"])
-boltcards_ext.include_router(boltcards_generic_router)
-boltcards_ext.include_router(boltcards_api_router)
-boltcards_ext.include_router(boltcards_lnurl_router)
+nostrnfcauth_ext: APIRouter = APIRouter(prefix="/boltcards", tags=["boltcards"])
+nostrnfcauth_ext.include_router(boltcards_generic_router)
+nostrnfcauth_ext.include_router(boltcards_api_router)
+nostrnfcauth_ext.include_router(boltcards_lnurl_router)
 
 scheduled_tasks: list[asyncio.Task] = []
 
