@@ -74,14 +74,14 @@ async def api_scan(p, c, request: Request, external_id: str):
         return {"status": "ERROR", "reason": "Max daily limit spent."}
     hit = await create_hit(card.id, ip, agent, card.counter, ctr_int)
 
-    # the raw lnurl
-    lnurlpay_raw = str(request.url_for("nostrnfcauth.lnurlp_response", hit_id=hit.id))
-    # bech32 encoded lnurl
-    lnurlpay_bech32 = lnurl_encode(lnurlpay_raw)
-    # create a lud17 lnurlp to support lud19, add payLink field of the withdrawRequest
-    lnurlpay_nonbech32_lud17 = lnurlpay_raw.replace("https://", "lnurlp://").replace(
-        "http://", "lnurlp://"
-    )
+    # # the raw lnurl
+    # lnurlpay_raw = str(request.url_for("nostrnfcauth.lnurlp_response", hit_id=hit.id))
+    # # bech32 encoded lnurl
+    # lnurlpay_bech32 = lnurl_encode(lnurlpay_raw)
+    # # create a lud17 lnurlp to support lud19, add payLink field of the withdrawRequest
+    # lnurlpay_nonbech32_lud17 = lnurlpay_raw.replace("https://", "lnurlp://").replace(
+    #     "http://", "lnurlp://"
+    # )
 
     return {
         # "tag": "withdrawRequest",
@@ -91,7 +91,7 @@ async def api_scan(p, c, request: Request, external_id: str):
         # "maxWithdrawable": card.tx_limit * 1000,
         # "defaultDescription": f"Boltcard (refund address lnurl://{lnurlpay_bech32})",
         # "payLink": lnurlpay_nonbech32_lud17,  # LUD-19 compatibility
-        "npub": card.npub ,
+        "npub": card.npub
     }
 
 
