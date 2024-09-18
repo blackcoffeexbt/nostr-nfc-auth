@@ -55,3 +55,11 @@ async def m001_initial(db):
         );
     """
     )
+
+# new migration add npub col to cards table
+async def m002_add_npub(db):
+    await db.execute(
+        f"""
+        ALTER TABLE nostrnfcauth.cards ADD COLUMN npub TEXT NOT NULL DEFAULT ''
+        """
+    )
