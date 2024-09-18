@@ -291,6 +291,19 @@
             </q-btn>
           </div>
         </div>
+          <div class="row">
+              <div class="col-10">
+                  <q-input
+                      filled
+                      dense
+                      emit-value
+                      v-model.trim="cardDialog.data.npub"
+                      type="text"
+                      label="Nostr npub"
+                  >
+                  </q-input>
+                </div>
+          </div>
 
         <q-toggle
           v-model="toggleAdvanced"
@@ -432,6 +445,7 @@
       <p style="word-break: break-all">
         <strong>Name:</strong> {{ qrCodeDialog.data.name }}<br />
         <strong>UID:</strong> {{ qrCodeDialog.data.uid }}<br />
+        <strong>Nostr Npub:</strong> {{ qrCodeDialog.data.npub }}<br />
         <strong>External ID:</strong> {{ qrCodeDialog.data.external_id }}<br />
         <strong>Lock key (K0):</strong> {{ qrCodeDialog.data.k0 }}<br />
         <strong>Meta key (K1 & K3):</strong> {{ qrCodeDialog.data.k1 }}<br />
