@@ -83,6 +83,13 @@ async def api_scan(p, c, request: Request, external_id: str):
     #     "http://", "lnurlp://"
     # )
 
+    # define a collection of badges with title and image url
+    badges = [
+        {"title": "Challenge Coin", "image": "https://cdn.satellite.earth/378ec02dfe70e532dba09b93d920bf673f3f363be7714aa66adf6729ee7e356e.jpg"},
+        {"title": "Chainsaw Level 1", "image": "https://cdn.satellite.earth/2f1dccd44aae97521631ecc7a5e66e8f2580ab50e2fd6f2d28e762df164320b4.jpg"},
+        {"title": "Transatlantic Sailing", "image": "https://cdn.satellite.earth/7a21629630f04df0de026801ce42c25dbbae52b4e64e3b9030e4e1e308f2bfec.jpg"},
+    ]
+
     return {
         # "tag": "withdrawRequest",
         # "callback": str(request.url_for("nostrnfcauth.lnurl_callback", hit_id=hit.id)),
@@ -91,7 +98,8 @@ async def api_scan(p, c, request: Request, external_id: str):
         # "maxWithdrawable": card.tx_limit * 1000,
         # "defaultDescription": f"Boltcard (refund address lnurl://{lnurlpay_bech32})",
         # "payLink": lnurlpay_nonbech32_lud17,  # LUD-19 compatibility
-        "npub": card.npub
+        "npub": card.npub,
+        badges: badges
     }
 
 
