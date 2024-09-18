@@ -1,7 +1,7 @@
 {
   "name": "Nostr IRL Auth",
   "short_description": "Use NFC tags for IRL Nostr Authentication",
-  "tile": "/nostr-nfc-auth/static/image/icon.png",
+  "tile": "/nostrnfcauth/static/image/icon.png",
   "min_lnbits_version": "0.12.5",
   "contributors": [
     {
