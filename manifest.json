@@ -1,0 +1,9 @@
+{
+  "repos": [
+    {
+      "id": "nostrnfcauth",
+      "organisation": "blackcoffeexbt",
+      "repository": "nostr-nfc-auth"
+    }
+  ]
+}
