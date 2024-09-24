@@ -53,18 +53,6 @@ new Vue({
             label: 'Wallet',
             field: 'wallet'
           },
-          {
-            name: 'tx_limit',
-            align: 'left',
-            label: 'Max tx',
-            field: 'tx_limit'
-          },
-          {
-            name: 'daily_limit',
-            align: 'left',
-            label: 'Daily tx limit',
-            field: 'daily_limit'
-          }
         ],
         pagination: {
           rowsPerPage: 10
@@ -104,12 +92,6 @@ new Vue({
             align: 'left',
             label: 'Card name',
             field: 'card_name'
-          },
-          {
-            name: 'amount',
-            align: 'left',
-            label: 'Amount',
-            field: 'amount'
           },
           {
             name: 'old_ctr',

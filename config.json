@@ -1,5 +1,5 @@
 {
-  "name": "Nostr IRL Auth",
+  "name": "Nostr Tap to Auth",
   "short_description": "Use NFC tags for IRL Nostr Authentication",
   "tile": "/nostrnfcauth/static/image/icon.png",
   "min_lnbits_version": "0.12.5",

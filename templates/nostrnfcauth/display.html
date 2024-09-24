@@ -1,4 +1,4 @@
-{% extends "public.html" %} {% block toolbar_title %} Boltcard: ${
+{% extends "public.html" %} {% block toolbar_title %} Nostr Tap Authenticator: ${
 card.card_name }{% endblock %} {% block page %}
 <div class="row q-col-gutter-md justify-center">
   <div class="col-12 col-md-6 col-lg-5 q-gutter-y-md">
@@ -34,41 +34,7 @@ card.card_name }{% endblock %} {% block page %}
       </q-card-section>
     </q-card>
   </div>
-  <div class="col-12 col-md-6 col-lg-5 q-gutter-y-md">
-    <q-card>
-      <q-card-section>
-        <div class="text-h6">Transactions</div>
-        <div class="text-subtitle2">Latest transactions</div>
-      </q-card-section>
 
-      <q-separator dark inset></q-separator>
-
-      <q-card-section>
-        <q-list>
-          <q-item v-for="hit in hits">
-            <q-item-section avatar>
-              <q-icon
-                :name="hit.spent > 0 ? 'done_all' : 'done'"
-                :color="hit.spent > 0 ? 'green' : 'grey'"
-              />
-            </q-item-section>
-            <q-item-section>
-              <q-item-label
-                >ID: ${hit.id} ${refunds.some(r => r.hit_id == hit.id) ?
-                '(Refunded)' : null}</q-item-label
-              >
-              <q-item-label caption lines="1">IP: ${hit.ip}</q-item-label>
-            </q-item-section>
-
-            <q-item-section side top>
-              <q-item-label caption>${hit.date}</q-item-label>
-              <q-item-label caption>${hit.amount} sats</q-item-label>
-            </q-item-section>
-          </q-item>
-        </q-list>
-      </q-card-section>
-    </q-card>
-  </div>
 </div>
 
 {% endblock %}{% block scripts %}
@@ -108,14 +74,14 @@ card.card_name }{% endblock %} {% block page %}
             label: 'File Key',
             value: 'k2'
           },
-          {
-            label: 'Transaction Limit',
-            value: 'tx_limit'
+            {
+            label: 'k3',
+            value: 'k1'
           },
-          {
-            label: 'Daily Limit',
-            value: 'daily_limit'
-          }
+            {
+            label: 'k4',
+            value: 'k2'
+          },
         ]
       }
     },

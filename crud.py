@@ -1,6 +1,7 @@
 import secrets
 from datetime import datetime
 from typing import List, Optional
+from loguru import logger
 
 from lnbits.db import Database
 from lnbits.helpers import urlsafe_short_hash
@@ -14,10 +15,14 @@ async def create_card(data: CreateCardData, wallet_id: str) -> Card:
     card_id = urlsafe_short_hash().upper()
     extenal_id = urlsafe_short_hash().lower()
 
+    logger.info(f"Creating card {card_id} for wallet {wallet_id}")
+    logger.info("Card npub: " + data.npub)
+
     await db.execute(
         """
         INSERT INTO nostrnfcauth.cards (
             id,
+            npub,
             uid,
             external_id,
             wallet,
@@ -31,10 +36,11 @@ async def create_card(data: CreateCardData, wallet_id: str) -> Card:
             k2,
             otp
         )
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """,
         (
             card_id,
+            data.npub,
             data.uid.upper(),
             extenal_id,
             wallet_id,
@@ -46,7 +52,7 @@ async def create_card(data: CreateCardData, wallet_id: str) -> Card:
             data.k0,
             data.k1,
             data.k2,
-            secrets.token_hex(16),
+            secrets.token_hex(16)
         ),
     )
     card = await get_card(card_id)

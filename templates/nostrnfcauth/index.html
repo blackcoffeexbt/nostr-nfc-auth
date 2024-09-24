@@ -168,45 +168,7 @@
         </q-table>
       </q-card-section>
     </q-card>
-    <q-card>
-      <q-card-section>
-        <div class="row items-center no-wrap q-mb-md">
-          <div class="col">
-            <h5 class="text-subtitle1 q-my-none">Refunds</h5>
-          </div>
-          <div class="col-auto">
-            <q-btn flat color="grey" @click="exportRefundsCSV"
-              >Export to CSV</q-btn
-            >
-          </div>
-        </div>
-        <q-table
-          dense
-          flat
-          :data="refunds"
-          row-key="id"
-          :columns="refundsTable.columns"
-          :pagination.sync="refundsTable.pagination"
-        >
-          {% raw %}
-          <template v-slot:header="props">
-            <q-tr :props="props">
-              <q-th v-for="col in props.cols" :key="col.name" :props="props">
-                {{ col.label }}
-              </q-th>
-            </q-tr>
-          </template>
-          <template v-slot:body="props">
-            <q-tr :props="props">
-              <q-td v-for="col in props.cols" :key="col.name" :props="props">
-                {{ col.value }}
-              </q-td>
-            </q-tr>
-          </template>
-          {% endraw %}
-        </q-table>
-      </q-card-section>
-    </q-card>
+
   </div>
   <div class="col-12 col-md-4 col-lg-5 q-gutter-y-md">
     <q-card>
@@ -234,29 +196,6 @@
           label="Wallet *"
         >
         </q-select>
-        <div class="row">
-          <div class="col">
-            <q-input
-              filled
-              dense
-              emit-value
-              v-model.trim="cardDialog.data.tx_limit"
-              type="number"
-              label="Max transaction (sats)"
-              class="q-pr-sm"
-            ></q-input>
-          </div>
-          <div class="col">
-            <q-input
-              filled
-              dense
-              emit-value
-              v-model.trim="cardDialog.data.daily_limit"
-              type="number"
-              label="Daily limit (sats)"
-            ></q-input>
-          </div>
-        </div>
         <q-input
           filled
           dense
